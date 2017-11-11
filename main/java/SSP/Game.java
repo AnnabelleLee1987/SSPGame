@@ -118,36 +118,6 @@ public class Game {
 
 
     /**
-     * sets number of rounds dependant on user input
-     * ends game, if 0 rounds shall be played
-     * handles invalid input
-
-    private void setRoundNumber() {
-        System.out.println("Wie viele Spielrunden sollen gespielt werden?");
-        System.out.println("Gib eine Zahl ein und bestätige mit ENTER.");
-        int userInput;
-        try {
-            userInput = scanner.nextInt();
-
-        } catch (InputMismatchException exception) {
-            System.out.println("Dies ist eine ungültige Eingabe.");
-            setRoundNumber();
-        }
-        if (!(userInput == null)) {
-            if (userInput > 0) {
-                this.rounds = userInput;
-            }
-            else if (userInput == 0) {
-                System.out.println("In dem Spiel werden keine Spielrunden gespielt.");
-            } else if (userInput < 0) {
-                System.out.println("Bitte gib eine positive Zahl ein.");
-                setRoundNumber();
-            }
-        }
-    }*/
-
-
-    /**
      * plays the rounds of the game
      */
     private void playGame() {
