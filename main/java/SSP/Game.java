@@ -93,13 +93,12 @@ public class Game {
      * sets number of rounds dependant on user input
      * ends game, if 0 rounds shall be played
      * handles invalid input
-     */
+    */
     private void setRoundNumber() {
-        this.rounds = 0;
-        int userInput = 0;
         System.out.println("Wie viele Spielrunden sollen gespielt werden?");
         System.out.println("Gib eine Zahl ein und bestätige mit ENTER.");
-        while (userInput == 0) {
+        int userInput = -1;
+        while (userInput <= 0) {
             try {
                 userInput = scanner.nextInt();
                 if (userInput > 0) {
@@ -107,15 +106,45 @@ public class Game {
                 }
                 else if (userInput == 0) {
                     System.out.println("In dem Spiel werden keine Spielrunden gespielt.");
-                    //todo endgame
                 } else if (userInput < 0) {
                     System.out.println("Bitte gib eine positive Zahl ein.");
                 }
             } catch (InputMismatchException exception) {
                 System.out.println("Dies ist eine ungültige Eingabe.");
+                scanner.next();
             }
         }
     }
+
+
+    /**
+     * sets number of rounds dependant on user input
+     * ends game, if 0 rounds shall be played
+     * handles invalid input
+
+    private void setRoundNumber() {
+        System.out.println("Wie viele Spielrunden sollen gespielt werden?");
+        System.out.println("Gib eine Zahl ein und bestätige mit ENTER.");
+        int userInput;
+        try {
+            userInput = scanner.nextInt();
+
+        } catch (InputMismatchException exception) {
+            System.out.println("Dies ist eine ungültige Eingabe.");
+            setRoundNumber();
+        }
+        if (!(userInput == null)) {
+            if (userInput > 0) {
+                this.rounds = userInput;
+            }
+            else if (userInput == 0) {
+                System.out.println("In dem Spiel werden keine Spielrunden gespielt.");
+            } else if (userInput < 0) {
+                System.out.println("Bitte gib eine positive Zahl ein.");
+                setRoundNumber();
+            }
+        }
+    }*/
 
 
     /**
@@ -168,6 +197,7 @@ public class Game {
         System.out.println("\nSpieler A gewann " + playerA.score + " Runden");
         System.out.println("Spieler B gewann " + playerB.score + " Runden");
         System.out.println(ties + " Runde(n) waren unentschieden und mussten wiederholt werden");
+        System.out.println("GAME OVER");
     }
 
 }
